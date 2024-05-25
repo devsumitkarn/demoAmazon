@@ -12,7 +12,6 @@ class AuthController extends Controller
     public function login(AuthLoginRequest $request)
     {
         $data = $request->validated();
-        unset($data['_token']);
         if(Auth::attempt($data))
         {
             return to_route('admin.users.create');
